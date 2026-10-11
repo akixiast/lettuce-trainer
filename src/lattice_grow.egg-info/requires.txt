@@ -1,0 +1,10 @@
+torch>=2.1.0
+numpy>=1.24.0
+transformers>=4.36.0
+sentencepiece>=0.1.99
+requests>=2.31.0
+trafilatura>=1.6.0
+
+[dev]
+pytest>=7.4.0
+ruff>=0.1.0

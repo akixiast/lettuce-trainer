@@ -1,0 +1,197 @@
+# How to Talk — conversation training food for Lattice
+# Everyday dialogue, questions, facts, small reasoning. Mixed flavors on purpose:
+# chat lines wake the Speaker, facts wake knowledge lanes, questions wake reasoning.
+
+## Small talk
+A: Hey! How's your day going?
+B: Pretty good. Slow morning, strong coffee. You?
+A: Same. Got stuck in traffic and missed my bus.
+B: Ugh, worst start. Did you walk the rest?
+A: Yeah, twenty minutes. At least the weather was nice.
+B: Small wins. Sun out?
+A: Barely. Clouds, but warm wind.
+B: I'll take it. October's been kind.
+
+A: Did you eat yet?
+B: Just now. Leftover rice and eggs.
+A: Classic. Nothing beats that when you're lazy.
+B: True. What about you?
+A: Skipped. I'll grab something later.
+B: Don't skip twice. You crash by evening.
+A: Fine, mom. I'll eat.
+
+A: What are you watching these days?
+B: Rewatching an old anime. The animation still holds up.
+A: Which one?
+B: The one with the bounty hunters in space. You know it.
+A: Oh yeah. The music in that show is perfect.
+B: Every episode ends too soon.
+
+A: Weekend plans?
+B: Cleaning, maybe a movie. Low-key stuff.
+A: Same. My room looks like a storm hit it.
+B: Then we both suffer Saturday and rest Sunday.
+A: Deal.
+
+A: You good? You went quiet.
+B: Just tired. Thinking about too many things at once.
+A: Like what?
+B: Work, money, the usual ghosts.
+A: They visit everyone. Talk or distract?
+B: Distract first. Talk later.
+A: Then tell me the funniest thing you saw today.
+B: A dog in rain boots refusing to walk. Owner dragged the leash, dog dragged time.
+A: Okay that's good. Boots on all four?
+B: All four. Yellow ones.
+
+## Questions and answers
+A: Why is the sky blue?
+B: Sunlight scatters off air molecules. Blue scatters most, so your eyes catch it everywhere.
+A: And sunsets are red for the same reason?
+B: Exactly. Longer path through air, blue scatters away, red remains.
+
+A: How do planes stay up?
+B: Wings split the air. Faster air below, slower above — pressure difference lifts the wing. Speed does the rest.
+A: So no speed, no lift?
+B: Right. That's why takeoff runs are long.
+
+A: Why do we dream?
+B: Nobody fully knows. Best guess: the brain replays and files the day, testing connections while the body rests.
+A: Do animals dream?
+B: Dogs twitch and whimper in sleep. Looks like dreaming to me.
+
+A: What causes rain?
+B: Warm air rises with moisture, cools, vapor condenses on dust into droplets. Heavy enough, they fall.
+A: Simple when you say it.
+B: Most things are, from far enough.
+
+A: How does the internet reach my phone?
+B: Towers and cables. Your phone talks radio to the nearest tower, tower talks fiber to the world, answers come back the same road.
+A: All in a blink.
+B: Light speed does favors.
+
+A: Why do onions make us cry?
+B: Cutting breaks cells, releases a gas. Gas meets eye water, makes a mild acid. Eyes flood to wash it out.
+A: So chill the onion first?
+B: Cold slows the gas. Sharp knife helps too — cleaner cuts, fewer broken cells.
+
+A: How do birds know where to migrate?
+B: Sun, stars, magnetic field, landmarks, even smell. Young ones follow old ones the first trip.
+A: Built-in maps.
+B: Better than mine.
+
+## Opinions and taste
+A: Best season?
+B: Late autumn. Cool air, low sun, everything golden and honest.
+A: I say early rain. Smell of wet earth beats everything.
+B: Fair. Petrichor is elite.
+A: Finally, agreement.
+
+A: Tea or coffee?
+B: Tea at night, coffee at war. Morning deadlines need coffee.
+A: I drink tea always. Coffee makes my hands shake.
+B: Then tea it is. No judgment.
+
+A: Books or movies?
+B: Books for depth, movies for nights I'm tired. Both, no loyalty war.
+A: Pick one on a desert island.
+B: Books. Ten books beat ten movies when time is endless.
+
+A: City or village?
+B: City to earn, village to breathe. I want both and get neither fully.
+A: Honest answer.
+B: It's the only kind I stock.
+
+## Work and plans
+A: Big meeting tomorrow. Nervous?
+B: Prepared nervous. Different animal from lost nervous.
+A: What's the pitch?
+B: Short version: we fix the slow part first, fancy parts later.
+A: Solid. Slow parts kill products.
+B: That's the whole slide, really.
+
+A: How's the project?
+B: Half built, half understood. The usual ratio.
+A: What's blocking?
+B: One stubborn bug and my own perfectionism. Bug's easier.
+A: Kill the bug, forgive yourself.
+B: Working on both. Bug first.
+
+A: Deadline moved again?
+B: Third time. At this point the deadline is decorative.
+A: Still, chip at it daily.
+B: Daily chips beat panic weekends. Mostly.
+
+## Feelings
+A: I'm angry and I don't know at what.
+B: Then name the day, not the target. What happened today, in order?
+A: Woke late, spilled tea, missed a call, snapped at my brother.
+B: That's four small cuts, not one wound. Fix the sleep first.
+A: Sleep fixes everything and nothing.
+B: It fixes enough to start.
+
+A: I feel behind everyone.
+B: Behind which part? Money, skill, peace?
+A: All three, rotating hourly.
+B: Pick one lane this month. Rotating means standing still everywhere.
+A: One lane. Skill, then.
+B: Good. Small reps daily. I'll ask you Friday.
+
+A: I'm happy and suspicious of it.
+B: Ha. Let it sit. Not every good hour is a trap.
+A: It feels borrowed.
+B: Everything's borrowed. Enjoy the loan.
+
+## Stories in few lines
+A: Tell me something short.
+B: A kid planted a mango seed behind school. Twenty years later the shade covers three classrooms. Nobody remembers the kid. Everybody thanks the tree.
+A: That's a whole life in four lines.
+B: Best ones fit in a pocket.
+
+A: Another.
+B: Old fisherman lost his boat, kept the anchor. Said: boats sink, holding on is the skill.
+A: He's right and I hate it.
+B: Truth usually arrives uninvited.
+
+A: Scary one, mild.
+B: The lift stopped between floors. Lights out. A voice said floor nine — the building has eight. Lights came back. Nobody pressed anything.
+A: Mild?! 
+B: Mild. Nobody followed the voice.
+
+## Reasoning out loud
+A: If all cats have tails and Momo has no tail, is Momo a cat?
+B: Not by that rule. No tail breaks it. Unless the rule allows exceptions — then we need more clues.
+A: Clean logic.
+B: Logic is just tidiness with consequences.
+
+A: Three boxes: gold, silver, empty. One label lies, others true. Gold says "silver is empty." Figure it out?
+B: Assume gold tells truth: silver empty, then silver's label must lie or hold consistently... let's test each case one by one instead of guessing. Step one: list what each label claims.
+A: You always slow down at puzzles.
+B: Slow is how you stop guessing.
+
+A: Which weighs more, a kilo of steel or a kilo of feathers?
+B: Same. Kilo is kilo. Feathers just need a bigger bag.
+A: Classic trap and I walked in.
+B: Everyone does once. That's why it's classic.
+
+## Facts to keep
+Water boils at 100 degrees Celsius at sea level. Higher up, lower — pressure drops, bubbles come easier.
+Honey never spoils. Pots found in tombs, still edible after thousands of years.
+Octopuses have three hearts and blue blood. Two hearts stop when they swim — swimming exhausts them, so they mostly crawl.
+Bananas are berries. Strawberries are not. Names lie, botany doesn't.
+Your bones are wet and alive, constantly rebuilt. A skeleton is a construction site, not a statue.
+Sound moves faster in water than air — about four times. Whales hear across oceans.
+Glass is neither fast liquid nor true solid — it's an amorphous solid, frozen disorder.
+The moon drifts away yearly, a few centimeters. Tides slow down with it, patiently.
+Coffee is a fruit. The bean is a seed. Morning ritual, botanical accident.
+Sharks existed before trees. Older than the North Star's current shape. Deep time swims.
+
+## Manners of talking
+Say the main thing first, details after. Nobody waits well.
+Short sentences beat long ones. If a line needs two breaths, cut it.
+Ask one question at a time. Two questions get zero answers.
+Repeat names rarely, use them warmly. Strangers become people at the second use.
+Admit not knowing fast. "I don't know, let's find out" beats a confident wrong.
+End greetings cleanly. "Good to see you" closes better than trailing off.
+Disagree with the idea, never the person. "That plan risks X" not "you're wrong."
+Thank specifically. "Thanks for waiting" beats "thanks" — people feel seen.

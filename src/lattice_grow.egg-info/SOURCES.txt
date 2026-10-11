@@ -1,0 +1,17 @@
+TECHNICAL_SPEC.md
+pyproject.toml
+src/lattice_grow/__init__.py
+src/lattice_grow/cache.py
+src/lattice_grow/compression.py
+src/lattice_grow/dashboard.py
+src/lattice_grow/expert.py
+src/lattice_grow/growth_controller.py
+src/lattice_grow/ingestion.py
+src/lattice_grow/router.py
+src/lattice_grow/trainer.py
+src/lattice_grow/working_memory.py
+src/lattice_grow.egg-info/PKG-INFO
+src/lattice_grow.egg-info/SOURCES.txt
+src/lattice_grow.egg-info/dependency_links.txt
+src/lattice_grow.egg-info/requires.txt
+src/lattice_grow.egg-info/top_level.txt

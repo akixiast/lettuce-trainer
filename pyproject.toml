@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lattice-grow"
+version = "0.1.0-dev"
+description = "Fixed-compute, unbounded-growth AI architecture with extreme compression"
+readme = "TECHNICAL_SPEC.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+    "torch>=2.1.0",
+    "numpy>=1.24.0",
+    "transformers>=4.36.0",
+    "sentencepiece>=0.1.99",
+    "requests>=2.31.0",
+    "trafilatura>=1.6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "ruff>=0.1.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

@@ -1,0 +1,122 @@
+# World Knowledge — facts across science, history, body, earth, space, machines.
+# Feeds knowledge lanes. Plain sentences, one idea each, true to 2026 best knowledge.
+
+## The human body
+The heart beats about 100,000 times a day, pushing 7,500 liters of blood.
+Muscles pull; they never push. Every movement is a team of pulls.
+Taste buds live two weeks, then replaced. Burnt tongue heals fast by design.
+Bones break down and rebuild constantly; a full skeleton refreshes in about ten years.
+The brain runs on 20 watts — a dim bulb's power for the whole mind.
+Eyes adjust to darkness in 30 minutes; full night vision is slow chemistry.
+Skin is the largest organ. It sheds 30,000 cells a minute, quietly.
+Hearing never sleeps fully; the brain just turns the volume down at night.
+Fingernails grow four times faster than toenails. Use drives growth.
+Laughter relaxes muscles and drops stress hormones measurably.
+
+## Earth
+Rivers carve valleys grain by grain; the Grand Canyon is patience made visible.
+Deserts were oceans once. Whale bones rest in Saharan sand.
+Volcanoes breathe before erupting — ground swells, gases shift, animals leave.
+Earthquakes mostly ride plate edges; the ground slips, waves run, buildings sway.
+Soil is alive: a spoon holds more microbes than people on Earth.
+Mountains grow millimeters a year and wash down just as slowly.
+Lightning heats air five times hotter than the sun's surface, briefly.
+Clouds weigh tons — thousands — yet float on rising warm air.
+The deep sea is Earth's largest habitat and least explored; maps of Mars beat maps of seabeds.
+Seasons come from tilt, not distance. Summer is leaning toward fire, winter away.
+
+## Space
+Light from the sun is eight minutes old when it touches skin.
+Mars sunsets are blue. Dust scatters evening the other way around.
+A day on Venus outlasts its year. It spins backward, slowly, under crushing air.
+Jupiter's storm is wider than Earth and has raged centuries.
+Saturn would float in a big enough ocean — lowest density of all planets.
+Neutron stars spin hundreds of times a second; a teaspoon weighs mountains.
+Black holes evaporate, slowly, over eons. Nothing escapes, but everything fades.
+The universe expands faster each day; distant galaxies cross beyond reach forever.
+Gold comes from colliding dead stars. Every ring is ancient violence, cooled.
+Astronauts grow taller in space — spines uncompress without gravity, then settle back.
+
+## History, compressed
+Fire tamed first: cooking unlocked calories, calories grew brains.
+Farming tied people to land; land needed defending; defense needed kings.
+Writing began as receipts — clay tokens for grain and goats before poems.
+The wheel rolled five thousand years ago; roads followed, then empires.
+Paper from China, numbers from India, lenses from everywhere — ideas travel faster than armies.
+Plagues rewrote wages: fewer workers meant survivors earned more.
+Printing pressed books cheap; cheap books pressed minds; minds pressed revolutions.
+Steam shrank distance; telegraph killed it. News outran horses forever after.
+Flight took eleven years from first hop to crossing war skies.
+The internet began as military mail, became everyone's market, library, and street.
+
+## Machines and code
+Computers count in twos: on, off, billions of flickers per second.
+Programs are recipes; bugs are typos with consequences.
+The first programmer wrote before computers existed — poetry of gears, 1843.
+Networks split messages into packets; each finds its own road; they reunite at the door.
+Encryption is math locks: easy to shut, hard to pick without the key.
+Databases remember everything and forgive nothing; backups forgive on their behalf.
+Phones sense touch by electric fields; gloves block the whisper.
+GPS needs four satellites minimum: three for place, one for time.
+Batteries age with heat and full charges; cool and half-full lives longest.
+Robots repeat perfectly and improvise never — the opposite of people, for now.
+
+## Food and kitchen science
+Salt pulls water out; sugar pulls water in. Both preserve by thirst.
+Bread rises on gas: yeast eats sugar, breathes bubbles, dough inflates.
+Cold sharpens knives' work — chilled onions release less tear gas.
+Acid cooks without heat: lime firms fish in ceviche, chemistry as flame.
+Caramel is burnt sugar stopped in time — seconds between sweet and bitter.
+Eggs set at different heats: whites firm first, yolks follow lazy.
+Spices fade in light and air; dark jars keep their voice years longer.
+Rice doubles by water math: one cup dry, two water, patience, lid.
+Fermentation is controlled rot: kimchi, curd, bread, beer — rot with a job.
+Taste is smell's junior partner; blocked noses flatten feasts.
+
+## Money sense
+Spend less than arrives. The whole religion in one line.
+Emergency funds first: three months of must-spends before any investing.
+Compound interest is slow magic: small, early, untouched beats big, late, fiddled.
+Debt with high interest is fire; pay the hottest fire first.
+Track for a month before budgeting; guesses lie, receipts don't.
+Insurance buys sleep, not profit. Cover ruin, skip the rest.
+Skills compound like money: daily reps beat weekend marathons.
+Buy tools that earn, rent toys that don't. Assets feed, liabilities eat.
+Inflation taxes the mattress; idle cash melts yearly, quietly.
+Rich is owing nothing and sleeping well — the rest is scoreboard.
+
+## Health basics
+Sleep glues memory; all-nighters borrow from tomorrow at cruel interest.
+Walk daily; the cheapest medicine has no prescription line.
+Water before coffee; the night dries you, mornings repay.
+Protein rebuilds; vegetables regulate; sugar excites then abandons.
+Sunlight sets the body clock; mornings outside beat pills for rhythm.
+Strength twice weekly keeps bones honest past forty.
+Breathing slow tells nerves the war is over; six breaths a minute calms storms.
+Checkups catch whispers before screams; yearly once, non-negotiable past thirty.
+Screens steal sleep an hour each night on average; charge phones outside bedrooms.
+Friends heal: loneliness harms like smoking, company repairs like rest.
+
+## Nature notes
+Trees talk through fungal wires, trading sugar and warnings underground.
+Wolves reshape rivers: fewer deer, more saplings, steadier banks — trophic cascades.
+Bees dance directions; the angle to the sun is the map, duration is distance.
+Ants farm fungus and herd aphids; tiny civilizations under every stone.
+Migrating birds read stars, magnets, and smell; losing one sense, they use the rest.
+Coral bleaches when seas warm two degrees too long; color returns if coolness returns.
+Mushrooms are fruit; the real body webs soil for miles, oldest and largest alive.
+Rainforests make their own rain; cut them, skies dry, rivers thin.
+Crows hold grudges and funerals; they remember faces for years.
+Seeds wait decades for one good rain; patience is a survival strategy.
+
+## Thinking tools
+Correlation is not cause: ice cream and drowning rise together — summer causes both.
+Sample size matters: three wins prove nothing, three hundred start to.
+Base rates first: rare diseases need strong tests, or positives lie mostly.
+Opportunity cost: every yes is a thousand quiet nos. Choose accordingly.
+Second-order effects: the fix causes the next problem; think two moves deep.
+Incentives rule: show me the reward, I'll show you the behavior.
+Occam's razor: simplest fitting story usually wins; extra parts need proof.
+Survivorship bias: winners' advice skips the graveyard of identical tries.
+Sunk cost: spent money is gone; decide by future, never by past pain.
+Falsify, don't confirm: seek the fact that kills your idea; survivors deserve trust.

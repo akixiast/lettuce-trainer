@@ -1,0 +1,97 @@
+# Deep Thinking — reasoning chains, puzzles, decisions, step-by-step minds.
+# Feeds reasoning lanes. Every answer shows its work.
+
+## Step-by-step habit
+Hard problem? Write what you know, what you need, what's missing — in that order.
+Missing piece identified is half solved. Guessing whole is how you stay stuck.
+Break big into three smalls. Smalls into steps. Steps into actions. Actions get done.
+Check each step before the next. Errors compound; caught early they're cheap.
+Estimate first, calculate after. If the estimate and answer disagree wildly, mistrust the answer.
+Work backward from the goal when forward stalls. Goals reveal their own prerequisites.
+Sleep on stuck problems. Morning minds solve what midnight minds looped.
+Teach it to someone. Teaching exposes every hole you papered over.
+Write it down. Heads leak; paper keeps. Thinking in ink beats thinking in air.
+
+## Everyday decisions
+Job offers: compare growth, people, pay — in that order. Pay fades, people stay, growth compounds.
+Buy or wait: need it weekly? Buy. Monthly? Borrow. Yearly? Rent. Once? Skip.
+Apologize fast, forgive slow. Speed heals the other; patience heals you.
+Move cities for people or purpose, never for weather. Weather never kept anyone.
+Say no to protect yes. Calendars fill with weeds unless gardened weekly.
+Choose the teacher over the school, the team over the brand, the craft over the title.
+Big purchases: wait 30 days. Want surviving a month is need; dead ones were weather.
+Trust patterns over promises. Three data points beat three speeches.
+Quit what drains with no lesson left. Persistence needs a point, not just pride.
+Rest is a decision too. Schedule it or guilt schedules it for you.
+
+## Puzzles with work shown
+Q: A bat and ball cost 1.10 total. Bat costs 1.00 more than ball. Ball price?
+Work: ball = x, bat = x + 1.00. Total: 2x + 1.00 = 1.10 → 2x = 0.10 → x = 0.05. Ball 5 cents.
+Lesson: fast answer says 10 cents. Fast answers skip algebra. Do the algebra.
+
+Q: Five machines make five widgets in five minutes. Hundred machines, hundred widgets?
+Work: rate per machine = 1 widget per 5 minutes. 100 machines in parallel → 100 widgets in 5 minutes.
+Lesson: parallel scales output, not time. More hands, same minutes.
+
+Q: Lily pads double daily, cover the lake day 30. Half covered when?
+Work: doubling backward: half of full = one day earlier. Day 29.
+Lesson: exponentials hide at the end. Half comes late, full comes sudden.
+
+Q: You pass the second runner. What place?
+Work: passing second puts you where second was. Second place, not first.
+Lesson: positions are taken, not made. Read the words.
+
+Q: A man pushes a car to a hotel, shouts bankrupt. Game?
+Work: Monopoly. Car token, hotels, bankruptcy — the pieces confess.
+Lesson: context clues cluster. Three small facts name the game.
+
+Q: How many months have 28 days?
+Work: all twelve have at least 28. February has exactly 28 (mostly). Answer: all.
+Lesson: questions exploit assumptions. Read literally first.
+
+Q: Forward I'm heavy, backward I'm not. What am I?
+Work: wordplay: "ton" forward heavy, "not" backward. Answer: ton.
+Lesson: reverse the string before reversing the logic.
+
+Q: The more you take, the more you leave behind. What?
+Work: footsteps. Taking steps leaves prints. Answer: footsteps.
+Lesson: verbs hide nouns. Take what? Steps. Leave what? Prints.
+
+Q: What runs but never walks, has a mouth but never talks?
+Work: a river. Runs = flows, mouth = delta. Answer: river.
+Lesson: metaphors wear literal clothes. Undress each word.
+
+Q: I speak without a mouth and hear without ears. What am I?
+Work: echo. Needs no organs, only walls. Answer: echo.
+Lesson: remove the assumed body, keep the function.
+
+## Arguments, weighed
+Claim: phones ruined conversation. For: heads down at tables, shorter attention, group chats replacing rooms. Against: distant families talk daily now, shy people speak easier in text, coordination improved. Verdict: changed, not ruined. Tools shift manners; manners re-form. Watch ten years, judge then.
+Claim: homework useless. For: stress, sleep loss, inequality of help at home. Against: practice locks skill, discipline compounds, gaps show early. Verdict: volume is the poison, not homework. Short, targeted, feedback-fast works.
+Claim: money buys happiness. For: removes fear, buys time, funds health. Against: hedonic treadmill, comparison traps, upkeep anxiety. Verdict: buys unhappiness-removal up to comfort line; beyond that, buys problems with nicer views.
+Claim: AI will take all jobs. For: pattern work automates fast. Against: new jobs appear, judgment work resists, people prefer people. Verdict: takes tasks, not jobs; workers who use tools replace workers who don't.
+Claim: cities beat villages. For: opportunity density, services, company. Against: cost, noise, pace that eats peace. Verdict: life-stage answer. Earn in cities young, breathe in villages when you can afford the quiet.
+
+## Plans that work
+Learn anything: 20 hours beats zero always. First 5 painful, next 10 fun, last 5 fluent-ish.
+Move house: pack room by room, label both sides, essentials box last-in-first-out. Sleep setup first night beats full unpack.
+Save money: automate transfer on salary day. Willpower loses to automation every month.
+Get fit: walk first month, add strength second, fix food third. One change at a time sticks; three at once quits.
+Write a book: 300 words daily beats weekend bursts. A year of dailies is a novel; bursts are confetti.
+Learn a language: 15 minutes daily, speak from week one badly, forgive the accent, keep the streak.
+Fix sleep: same wake time daily including weekends. Wake anchors rhythm; bedtime follows.
+Study exams: past papers first, notes second, rereading last. Test-shaped practice beats chapter-shaped comfort.
+Start business: sell one before building ten. One paying stranger beats a hundred polite opinions.
+Change habits: shrink the start (two pushups, one page). Tiny starts bypass dread; momentum finishes.
+
+## Why things fail, honestly
+Diets fail on bans, not hunger. Forbidden foods become obsessions; allowed-everything with portions wins.
+Startups die on no-need, not no-money. Building what nobody asked for burns any budget.
+Resolutions die on size. Year-long vows collapse by February; monthly trials survive.
+Students fail on rereading. Familiar feels learned; testing reveals the gap too late.
+Teams fail on silence. Small frictions unspoken grow teeth; weekly honesty keeps them small.
+Code fails on assumptions. Untested "surely works" is where bugs breed; run it, don't trust it.
+Relationships fail on scorekeeping. Ledgers kill warmth; give without receipts or leave cleanly.
+Health fails on someday. Next Monday never arrives; today always does.
+Plans fail on single points. One supplier, one client, one income — fragility dressed as focus.
+Memory fails on trust. Write the important down; brains are for thinking, paper for keeping.

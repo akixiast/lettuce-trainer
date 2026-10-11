@@ -1,0 +1,348 @@
+Metadata-Version: 2.4
+Name: lattice-grow
+Version: 0.1.0.dev0
+Summary: Fixed-compute, unbounded-growth AI architecture with extreme compression
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: torch>=2.1.0
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: transformers>=4.36.0
+Requires-Dist: sentencepiece>=0.1.99
+Requires-Dist: requests>=2.31.0
+Requires-Dist: trafilatura>=1.6.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: ruff>=0.1.0; extra == "dev"
+
+# Lattice-Grow: Technical Specification
+## A Fixed-Compute, Unbounded-Growth Architecture with Extreme Compression
+
+**Version**: 0.1.0-draft  
+**Date**: 2026-10-10  
+**Status**: Design Complete, Pre-Implementation
+
+---
+
+## 1. Architecture Overview
+
+Lattice-Grow decouples *knowledge capacity* from *compute capacity*. The model consists of:
+
+1. **Fixed Compute Core** (always in VRAM): Router + Working Memory + Expert Cache
+2. **Unbounded Expert Lattice** (on SSD): Immutable, compressed expert modules organized in a fractal tree
+3. **Compression Pipeline**: Sub-1-bit quantization + delta encoding applied at freeze-time
+
+### 1.1 Core Invariants
+
+| Invariant | Guarantee | Mechanism |
+|-----------|-----------|-----------|
+| VRAM usage | Constant ≤8GB | Fixed core size; experts stream from SSD |
+| Training step cost | Constant FLOPs | Only active expert path participates in backprop |
+| Knowledge retention | Zero catastrophic forgetting | Experts are immutable once frozen |
+| Storage efficiency | ~0.8MB per 10M-param expert | NanoQuant sub-1-bit + ZipLLM delta |
+| Growth bound | Limited only by SSD | Append-only expert tree on disk |
+
+---
+
+## 2. Component Specifications
+
+### 2.1 Fixed Compute Core
+
+#### Router (50M params)
+- **Architecture**: 4-layer MLP with hierarchical routing head
+- **Input**: Token embeddings from working memory
+- **Output**: Top-k expert IDs + confidence scores
+- **Routing Algorithm**: Two-stage hierarchical selection
+  - Stage 1: Domain classifier selects tier-1 cluster (softmax over domain embeddings)
+  - Stage 2: Within-cluster kNN over expert centroids selects top-3 leaf experts
+- **Protection**: EWC penalty on router weights during training to preserve old routing knowledge
+- **Update Frequency**: Every training step (lightweight, <5% of total FLOPs)
+
+#### Working Memory (100M params)
+- **Architecture**: 12-layer transformer decoder, hidden_dim=768, heads=12
+- **Role**: Active reasoning, context integration, expert output fusion
+- **KV Cache**: TurboQuant 3-bit quantization → ~330MB VRAM for 2K context
+- **Training**: Full gradient flow; LoRA adapters (rank=16) for parameter efficiency
+
+#### Expert Cache (2-4GB VRAM)
+- **Capacity**: Holds 4-8 active experts simultaneously
+- **Eviction Policy**: LRU with frequency boost (experts routed to >10x/min stay pinned)
+- **Prefetching**: Async NVMe read-ahead for predicted next experts (based on router confidence distribution)
+- **Format**: Decompressed FP16 tensors ready for GPU compute
+
+### 2.2 Expert Module Specification
+
+#### Structure
+Each expert is a self-contained FFN block:
+```python
+ExpertModule:
+  - input_proj: Linear(hidden_dim, expert_dim)    # 768 → 1024
+  - ffn: Sequential(
+      Linear(expert_dim, ffn_dim),                # 1024 → 4096
+      GELU(),
+      Dropout(0.1),
+      Linear(ffn_dim, expert_dim)                 # 4096 → 1024
+    )
+  - output_proj: Linear(expert_dim, hidden_dim)   # 1024 → 768
+  - metadata: ExpertMetadata (see §2.3)
+```
+
+**Parameter Count**: ~10M per expert  
+**FP16 Size**: ~20MB  
+**Compressed Size**: ~0.8MB (sub-1-bit) + ~0.08MB delta overhead
+
+#### Lifecycle States
+1. **TRAINING**: In VRAM cache, receiving gradients, mutable
+2. **VALIDATING**: Post-training evaluation on held-out samples
+3. **FREEZING**: Compression pipeline runs (NanoQuant + ZipLLM delta)
+4. **ARCHIVED**: Immutable on SSD, read-only, versioned
+5. **CONSOLIDATED**: Merged into parent; original archived but marked inactive
+
+### 2.3 Expert Metadata Schema
+
+```json
+{
+  "expert_id": "uuid-v4",
+  "parent_id": "uuid-v4 | null",
+  "domain_cluster": "string",
+  "created_timestamp": "ISO-8601",
+  "freeze_timestamp": "ISO-8601",
+  "version": "integer",
+  "compression": {
+    "method": "nanoquant-v1",
+    "bit_width": 0.65,
+    "scale_factors_path": "relative/path/to/scales.bin",
+    "delta_base_id": "parent_expert_id | null",
+    "delta_encoding": "zipllm-bitx-v1"
+  },
+  "routing_centroid": "float32[768]",
+  "activation_stats": {
+    "total_tokens_processed": "uint64",
+    "last_access_timestamp": "ISO-8601",
+    "avg_confidence": "float32"
+  },
+  "training_samples_seen": "uint64",
+  "consolidation_eligible": "boolean"
+}
+```
+
+### 2.4 Fractal Tree Organization
+
+- **Root**: Single virtual node representing general knowledge
+- **Tier 1**: Domain clusters (e.g., "mathematics", "programming", "history")
+- **Tier 2+**: Specialized sub-domains, spawned dynamically
+- **Leaf Nodes**: Individual expert modules
+- **Depth Bound**: Max 8 tiers (prevents pathological routing chains)
+- **Branching Factor**: Dynamic; starts at 4, grows via consolidation splits
+- **Invariant**: Any inference path traverses ≤ O(log N) nodes where N = total experts
+
+---
+
+## 3. Compression Pipeline
+
+### 3.1 Freeze-Time Compression (NanoQuant + ZipLLM)
+
+When an expert transitions from VALIDATING → FREEZING:
+
+1. **Delta Computation**: XOR difference between current expert weights and parent expert weights (or zero tensor if root)
+2. **Tensor-Level Deduplication** (ZipLLM): Identify and deduplicate identical tensor slices across sibling experts in same domain cluster
+3. **Sub-1-Bit Quantization** (NanoQuant):
+   - Latent factorization of weight matrices into low-rank factors
+   - Per-channel scale factor extraction
+   - Binary/ternary encoding of residual signs
+   - Target bit-width: 0.55–0.80 bits per weight (adaptive based on layer sensitivity)
+4. **Lossless BitX Encoding** (ZipLLM): Compress quantized residuals + scale factors
+5. **Atomic Write**: Compressed expert + metadata written to SSD; old version retained for rollback
+
+### 3.2 Load-Time Decompression
+
+When an expert is loaded from ARCHIVED → Expert Cache:
+
+1. Read compressed blob from SSD (~0.8MB)
+2. Decode BitX stream → quantized tensors + scale factors
+3. Reconstruct FP16 weights via latent factor expansion
+4. Apply delta patch if `delta_base_id` is set (load base expert first, then XOR)
+5. Transfer to GPU expert cache
+
+**Decompression Cost**: ~5ms on CPU, overlaps with NVMe I/O via async pipeline
+
+### 3.3 Storage Projections
+
+| Metric | Value |
+|--------|-------|
+| Single expert (10M params, compressed) | 0.8 MB |
+| Delta overhead (child vs parent) | 0.08 MB (10%) |
+| Experts per 1TB SSD | ~1,000,000 |
+| Years of learning at 100 experts/day | ~27 years on 1TB |
+| KV cache (2K context, 3-bit) | 330 MB |
+| Total VRAM footprint (core + cache) | 6-8 GB |
+
+---
+
+## 4. Training Protocol
+
+### 4.1 Forward Pass
+
+```python
+def forward(input_ids):
+    # 1. Working memory processes input
+    wm_hidden = working_memory(input_ids)  # [batch, seq, 768]
+    
+    # 2. Router selects experts
+    expert_ids, confidences = router(wm_hidden[:, -1, :])  # top-3
+    
+    # 3. Load experts (async prefetch if not cached)
+    active_experts = expert_cache.load(expert_ids)
+    
+    # 4. Compute expert outputs in parallel
+    expert_outputs = [expert(wm_hidden) for expert in active_experts]
+    
+    # 5. Weighted fusion by router confidence
+    fused = sum(c * o for c, o in zip(confidences, expert_outputs))
+    
+    # 6. Final decode
+    logits = working_memory.decode(fused)
+    return logits
+```
+
+### 4.2 Backward Pass
+
+- Gradients flow through: logits → fused output → active experts → router → working memory
+- **Frozen experts receive NO gradients** (structural isolation)
+- Router receives EWC penalty: `loss_ewc = lambda * sum(F_i * (theta_i - theta_star_i)^2)`
+- Working memory uses LoRA: only adapter matrices receive gradients
+
+### 4.3 Novelty Detection & Expert Spawning
+
+Trigger new expert creation when:
+- Router max confidence < 0.3 for >50 consecutive tokens, OR
+- Reconstruction loss > 2× moving average over last 100 steps, OR
+- Explicit user signal ("learn this" command)
+
+**Spawning Procedure**:
+1. Clone closest parent expert's weights as initialization
+2. Create new LoRA adapter (rank=16) on cloned expert
+3. Train adapter only on novelty samples for ≤500 steps
+4. Validate on held-out subset
+5. If validation loss < threshold → enter FREEZING state
+6. Else → discard and increment novelty counter
+
+### 4.4 Consolidation (Offline Gardening)
+
+Run periodically (e.g., weekly or when expert count exceeds tier capacity):
+
+1. Compute pairwise activation overlap for all sibling experts in each cluster
+2. If overlap > 0.9 AND both experts have >10K tokens processed:
+   - Merge weights via weighted average (by token count)
+   - Spawn new parent expert with merged weights
+   - Mark children as CONSOLIDATED (archived, not deleted)
+   - Update router centroids
+3. Prune experts with <100 lifetime tokens AND age >30 days (likely noise)
+
+---
+
+## 5. File Format & Storage Layout
+
+### 5.1 Directory Structure
+
+```
+lattice-store/
+├── meta/
+│   ├── tree_index.json          # Fractal tree structure
+│   ├── domain_clusters.json     # Cluster definitions
+│   └── router_state.pt          # Router weights + EWC fisher matrix
+├── experts/
+│   ├── {cluster_id}/
+│   │   ├── {expert_id}.lge      # Lattice-Grow Expert file
+│   │   ├── {expert_id}.meta.json
+│   │   └── {expert_id}.scales.bin
+│   └── ...
+├── replay/
+│   └── exemplars.db             # SQLite: 1K samples/domain
+└── logs/
+    └── training_log.jsonl
+```
+
+### 5.2 .lge File Format (Lattice-Grow Expert)
+
+```
+[MAGIC: 4 bytes "LGEX"]
+[VERSION: uint16]
+[COMPRESSION_METHOD: uint8]
+[BIT_WIDTH: float16]
+[TENSOR_COUNT: uint32]
+[TENSOR_HEADERS: variable]
+  - name_length: uint8
+  - name: utf-8
+  - shape: uint32[]
+  - dtype: uint8
+  - offset: uint64
+  - compressed_size: uint64
+[COMPRESSED_DATA: variable]
+[CHECKSUM: CRC32]
+```
+
+---
+
+## 6. Benchmark & Validation Plan
+
+### 6.1 Throughput Constancy Test
+
+- Measure tokens/sec at expert counts: 100, 1K, 10K, 100K
+- Expected: ±5% variance across all scales
+- Hardware: Fixed student laptop (RTX 3060 / 8GB VRAM / 1TB NVMe)
+
+### 6.2 Forgetting Rate Test
+
+- Sequential task protocol (Avalanche benchmark suite)
+- Tasks: MNIST → CIFAR → Text classification → Domain-specific QA
+- Metric: Backward Transfer (BWT) should be ≥ -0.01 (near-zero forgetting)
+- Compare against: EWC, SI, Progressive Nets, standard fine-tuning
+
+### 6.3 Storage Efficiency Test
+
+- Track bytes-per-expert over 10K expert lifecycle
+- Expected: ≤1MB average including deltas and metadata
+- Compare against: FP16 baseline, INT4 quantization, naive zip
+
+### 6.4 Routing Accuracy Test
+
+- Measure expert retrieval precision@3 over held-out domain queries
+- Expected: >85% after 1K experts, >95% after 10K
+- Ablation: Hierarchical vs flat routing, EWC vs no-EWC
+
+---
+
+## 7. Open-Source Dependencies
+
+| Component | Library | Purpose |
+|-----------|---------|---------|
+| Disk offloading | Colossal-AI | NVMe streaming, pinned memory |
+| Continual learning utils | Avalanche | Benchmarks, replay buffers, metrics |
+| MoE infrastructure | DeepSpeed | Expert parallelism scaffolding |
+| Sub-1-bit quantization | Custom (NanoQuant ref) | Freeze-time compression |
+| Delta compression | Custom (ZipLLM ref) | Version-efficient archival |
+| Base transformer | HuggingFace Transformers | Working memory backbone |
+| Router kNN | FAISS | Fast centroid search |
+
+---
+
+## 8. Known Risks & Mitigations
+
+| Risk | Severity | Mitigation |
+|------|----------|------------|
+| Router fails to retrieve correct expert | High | Hierarchical fallback search; confidence threshold triggers novelty spawn |
+| Expert sprawl degrades routing | Medium | Aggressive consolidation; pruning policy |
+| Sub-1-bit quality loss in sensitive layers | Medium | Adaptive bit-width; keep attention layers at higher precision |
+| SSD wear from frequent writes | Low | Write batching; compress-before-write reduces volume |
+| Thermal throttling on old laptops | Low | Gradient checkpointing; batch size auto-scaling |
+
+---
+
+## 9. Next Steps
+
+1. ✅ Technical Specification (this document)
+2. ⬜ Prototype Code Skeleton (PyTorch + Colossal-AI)
+3. ⬜ Compression Pipeline Reference Implementation
+4. ⬜ Benchmark Harness Setup
+5. ⬜ MVP Training Run (100 experts, single domain)

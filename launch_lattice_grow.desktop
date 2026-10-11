@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Lattice-Grow Dashboard
+Comment=Launch the Lattice-Grow AI prototype dashboard (opens browser if already running)
+Exec=/home/kensagaryadav/Desktop/coding projects/AI Lab/lattice-grow/lattice-launch.sh
+Icon=utilities-terminal
+Terminal=true
+Categories=Development;
+StartupNotify=true
